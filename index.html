@@ -1,0 +1,1056 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PositiveFinger Academy</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --yellow:#FFD83D;
+  --yellow-dark:#F3BF17;
+  --navy:#222B45;
+  --muted:#8991A4;
+  --bg:#F7F8FC;
+  --green:#54C78A;
+  --blue:#6597F5;
+  --purple:#A78BFA;
+  --border:#EAECF2;
+}
+
+* {box-sizing:border-box}
+
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--navy);
+  font-family:'Nunito','Noto Sans JP',sans-serif;
+}
+
+button {font:inherit;cursor:pointer}
+
+.app {
+  min-height:100vh;
+  display:flex;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  width:245px;
+  background:white;
+  border-right:1px solid var(--border);
+  padding:28px 20px;
+  position:fixed;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  z-index:5;
+}
+
+.logo {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:42px;
+}
+
+.logo-mark {
+  width:42px;height:42px;
+  border-radius:14px;
+  background:var(--yellow);
+  display:grid;
+  place-items:center;
+}
+
+.logo-name {
+  font-weight:900;
+  font-size:18px;
+  line-height:1.1;
+}
+
+.logo-name small {
+  display:block;
+  font-size:10px;
+  color:var(--muted);
+  letter-spacing:2px;
+  margin-top:4px;
+}
+
+.nav-label {
+  font-size:10px;
+  color:#A0A6B4;
+  font-weight:900;
+  letter-spacing:2px;
+  margin:0 0 12px 10px;
+}
+
+.nav-item {
+  border:0;
+  background:transparent;
+  padding:13px 14px;
+  display:flex;
+  align-items:center;
+  gap:13px;
+  border-radius:13px;
+  color:#737D91;
+  font-size:13px;
+  font-weight:800;
+  text-align:left;
+  margin-bottom:5px;
+}
+
+.nav-item:hover,.nav-item.active {
+  background:#FFF8D9;
+  color:var(--navy);
+}
+
+.nav-icon {
+  font-size:19px;
+  width:24px;
+  text-align:center;
+}
+
+.sidebar-bottom {
+  margin-top:auto;
+  background:#FFF8DC;
+  padding:16px;
+  border-radius:17px;
+}
+
+.sidebar-bottom strong {font-size:13px}
+.sidebar-bottom p {
+  font-size:11px;
+  color:#7B7890;
+  line-height:1.7;
+}
+
+/* MAIN */
+
+.main {
+  margin-left:245px;
+  width:calc(100% - 245px);
+  padding:30px 42px 70px;
+  max-width:1600px;
+}
+
+.topbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:30px;
+}
+
+.breadcrumb {
+  font-size:12px;
+  color:var(--muted);
+  font-weight:700;
+}
+
+.stats {
+  display:flex;
+  gap:10px;
+}
+
+.stat {
+  display:flex;
+  align-items:center;
+  gap:7px;
+  background:white;
+  border:1px solid var(--border);
+  padding:9px 14px;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:900;
+}
+
+.page-title {
+  font-size:27px;
+  font-weight:900;
+  margin:0 0 5px;
+}
+
+.page-subtitle {
+  color:var(--muted);
+  font-size:13px;
+  margin:0 0 25px;
+}
+
+/* HERO */
+
+.hero {
+  background:var(--yellow);
+  border-radius:23px;
+  padding:30px 34px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  min-height:205px;
+  overflow:hidden;
+  position:relative;
+  margin-bottom:30px;
+}
+
+.hero-text {z-index:1}
+.hero-tag {
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:2px;
+  background:rgba(255,255,255,.5);
+  display:inline-block;
+  padding:6px 11px;
+  border-radius:20px;
+}
+
+.hero h2 {
+  font-size:27px;
+  margin:14px 0 7px;
+  font-weight:900;
+}
+
+.hero p {
+  font-size:12px;
+  color:#61572D;
+  margin:0;
+  line-height:1.8;
+}
+
+.mascot {
+  width:150px;
+  flex-shrink:0;
+  margin-right:35px;
+  animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% {transform:translateY(0)}
+  50% {transform:translateY(-9px)}
+}
+
+/* PROGRESS */
+
+.section-header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:30px 0 15px;
+}
+
+.section-header h3 {
+  font-size:17px;
+  font-weight:900;
+  margin:0;
+}
+
+.section-header span {
+  color:var(--muted);
+  font-size:11px;
+  font-weight:700;
+}
+
+.course-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:15px;
+}
+
+.course {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:20px;
+  display:flex;
+  gap:16px;
+  align-items:center;
+  transition:.2s;
+}
+
+.course:hover {
+  transform:translateY(-3px);
+  box-shadow:0 8px 25px #26324d0c;
+}
+
+.course-symbol {
+  width:57px;height:57px;
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+  font-size:27px;
+  flex-shrink:0;
+}
+
+.course h4 {
+  font-size:14px;
+  font-weight:900;
+  margin:0 0 5px;
+}
+
+.course p {
+  font-size:11px;
+  color:var(--muted);
+  margin:0 0 10px;
+}
+
+.progress-track {
+  height:6px;
+  background:#EDF0F5;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.progress-fill {
+  height:100%;
+  border-radius:10px;
+  background:var(--green);
+}
+
+.course button {
+  margin-top:9px;
+  border:0;
+  background:none;
+  color:#788399;
+  font-size:11px;
+  font-weight:900;
+  padding:0;
+}
+
+/* LOWER */
+
+.lower-grid {
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  gap:16px;
+  margin-top:25px;
+}
+
+.panel {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:22px;
+}
+
+.panel h3 {
+  margin:0 0 18px;
+  font-size:15px;
+  font-weight:900;
+}
+
+.mission {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:14px 0;
+}
+
+.mission-icon {
+  width:39px;height:39px;
+  display:grid;
+  place-items:center;
+  background:#F5F6FA;
+  border-radius:12px;
+  font-size:19px;
+}
+
+.mission-info {flex:1}
+.mission-info strong {font-size:12px}
+.mission-info p {
+  margin:3px 0 0;
+  font-size:10px;
+  color:var(--muted);
+}
+
+.mission-status {
+  font-size:11px;
+  font-weight:900;
+  color:var(--green);
+}
+
+.guild {
+  background:#F2F5FF;
+  border-radius:14px;
+  padding:15px;
+}
+
+.guild h4 {
+  margin:0 0 6px;
+  font-size:13px;
+}
+
+.guild p {
+  font-size:11px;
+  color:#7C8499;
+  line-height:1.7;
+}
+
+.guild-members {
+  display:flex;
+  margin:15px 0;
+}
+
+.member {
+  width:32px;height:32px;
+  border-radius:50%;
+  border:3px solid white;
+  display:grid;
+  place-items:center;
+  margin-right:-7px;
+  font-size:13px;
+  background:#FFE5A5;
+}
+
+.guild-progress {
+  height:8px;
+  background:#DCE4FA;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.guild-progress div {
+  height:100%;
+  width:65%;
+  background:var(--blue);
+  border-radius:10px;
+}
+
+/* LESSON */
+
+.lesson-screen {
+  display:none;
+  max-width:720px;
+  margin:auto;
+}
+
+.lesson-top {
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-bottom:45px;
+}
+
+.close-btn {
+  border:0;
+  background:none;
+  font-size:24px;
+  color:var(--muted);
+}
+
+.lesson-bar {
+  flex:1;
+  height:10px;
+  background:#E9ECF2;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.lesson-bar div {
+  height:100%;
+  width:0;
+  background:var(--green);
+  transition:.3s;
+}
+
+.lesson-xp {
+  font-size:12px;
+  font-weight:900;
+}
+
+.question-card {
+  background:white;
+  padding:35px;
+  border:1px solid var(--border);
+  border-radius:22px;
+}
+
+.question-label {
+  color:var(--green);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.question-card h2 {
+  font-size:23px;
+  line-height:1.6;
+  margin:15px 0 10px;
+}
+
+.question-desc {
+  color:var(--muted);
+  font-size:12px;
+  margin-bottom:25px;
+}
+
+.answers {
+  display:grid;
+  gap:12px;
+}
+
+.answer {
+  padding:17px;
+  background:white;
+  border:2px solid #E9ECF2;
+  border-radius:13px;
+  text-align:left;
+  font-weight:800;
+  font-size:13px;
+  color:var(--navy);
+}
+
+.answer:hover {border-color:var(--yellow-dark)}
+.answer.selected {border-color:var(--blue);background:#F1F5FF}
+.answer.correct {border-color:var(--green);background:#EDFFF5}
+.answer.wrong {border-color:#EF8B8B;background:#FFF2F2}
+
+.lesson-footer {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:25px;
+}
+
+.feedback {
+  font-size:12px;
+  font-weight:800;
+  color:var(--green);
+  min-height:20px;
+}
+
+.primary-btn {
+  background:var(--yellow);
+  color:var(--navy);
+  border:0;
+  border-radius:12px;
+  padding:13px 27px;
+  font-weight:900;
+  font-size:13px;
+  box-shadow:0 4px 0 var(--yellow-dark);
+}
+
+.primary-btn:active {
+  transform:translateY(3px);
+  box-shadow:none;
+}
+
+.primary-btn:disabled {
+  opacity:.4;
+  cursor:not-allowed;
+}
+
+/* COMPLETION */
+
+.complete {
+  display:none;
+  text-align:center;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:45px 20px;
+}
+
+.complete .big-star {font-size:70px}
+.complete h2 {font-size:26px}
+.complete p {font-size:13px;color:var(--muted)}
+.reward {
+  display:inline-block;
+  background:#FFF6D7;
+  padding:14px 25px;
+  border-radius:13px;
+  font-weight:900;
+  margin:15px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+  .sidebar {width:75px;padding:20px 10px}
+  .logo-name,.nav-label,.nav-item span:last-child,
+  .sidebar-bottom {display:none}
+  .logo {justify-content:center}
+  .nav-item {justify-content:center;padding:13px 5px}
+  .main {margin-left:75px;width:calc(100% - 75px);padding:25px 20px}
+}
+
+@media(max-width:600px) {
+  .main {padding:20px 13px}
+  .stats {gap:4px}
+  .stat {padding:7px;font-size:11px}
+  .hero {padding:23px 20px;min-height:170px}
+  .hero h2 {font-size:21px}
+  .mascot {width:100px;margin-right:0}
+  .course-grid,.lower-grid {grid-template-columns:1fr}
+  .course {padding:15px}
+  .question-card {padding:23px}
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<aside class="sidebar">
+  <div class="logo">
+    <div class="logo-mark">
+      <svg width="29" height="29" viewBox="0 0 40 40">
+        <path d="M20 3 C10 3 4 12 5 22 C6 32 14 37 23 35 C33 32 38 22 34 13 C31 6 26 3 20 3Z" fill="#222B45"/>
+        <path d="M13 19 Q15 16 17 19 M24 19 Q27 16 29 19" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M17 25 Q21 30 26 25" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="logo-name">
+      PositiveFinger
+      <small>ACADEMY</small>
+    </div>
+  </div>
+
+  <div class="nav-label">MENU</div>
+
+  <button class="nav-item active" onclick="showHome()">
+    <span class="nav-icon">⌂</span><span>ホーム</span>
+  </button>
+  <button class="nav-item" onclick="showCourses()">
+    <span class="nav-icon">✦</span><span>学習コース</span>
+  </button>
+  <button class="nav-item" onclick="showMissions()">
+    <span class="nav-icon">◎</span><span>ミッション</span>
+  </button>
+  <button class="nav-item" onclick="showGuild()">
+    <span class="nav-icon">♧</span><span>ギルド</span>
+  </button>
+
+  <div class="sidebar-bottom">
+    <strong>今日も一歩ずつ！</strong>
+    <p>小さなポジティブが、大きな変化につながる。</p>
+  </div>
+</aside>
+
+<main class="main">
+
+<div class="topbar">
+  <div class="breadcrumb">POSITIVEFINGER / ACADEMY</div>
+  <div class="stats">
+    <div class="stat">🔥 <span id="streak">3</span></div>
+    <div class="stat">⭐ <span id="xp">120</span> XP</div>
+    <div class="stat">🏅 LV.<span id="level">2</span></div>
+  </div>
+</div>
+
+<!-- HOME -->
+
+<section id="home">
+
+  <h1 class="page-title">今日もポジティブに！</h1>
+  <p class="page-subtitle">少しずつ学んで、毎日をもっと豊かに。</p>
+
+  <div class="hero">
+    <div class="hero-text">
+      <span class="hero-tag">YOUR DAILY LEARNING</span>
+      <h2>ポジティブを、<br>習慣にしよう。</h2>
+      <p>今日の学習を始めて、新しい自分を見つけよう。</p>
+    </div>
+
+    <!-- ORIGINAL MASCOT -->
+    <svg class="mascot" viewBox="0 0 180 180">
+      <ellipse cx="90" cy="163" rx="52" ry="8" fill="#D5AD24" opacity=".3"/>
+      <path d="M88 22 Q75 4 90 2 Q104 3 96 23" fill="#65B981" stroke="#397F59" stroke-width="3"/>
+      <path d="M93 17 Q111 1 117 13 Q118 24 96 25" fill="#85D69D"/>
+      <path d="M90 23 C48 19 22 52 25 101 C27 145 53 163 91 162 C130 162 155 137 155 96 C155 51 128 22 90 23Z" fill="#FFE16A" stroke="#E9B936" stroke-width="4"/>
+      <ellipse cx="66" cy="89" rx="6" ry="9" fill="#343B50"/>
+      <ellipse cx="115" cy="89" rx="6" ry="9" fill="#343B50"/>
+      <circle cx="53" cy="105" r="9" fill="#FF9B9B" opacity=".7"/>
+      <circle cx="129" cy="105" r="9" fill="#FF9B9B" opacity=".7"/>
+      <path d="M78 108 Q91 121 104 108" fill="none" stroke="#343B50" stroke-width="4" stroke-linecap="round"/>
+      <path d="M30 110 Q8 94 11 79" fill="none" stroke="#E9B936" stroke-width="9" stroke-linecap="round"/>
+      <path d="M149 110 Q169 94 170 79" fill="none" stroke="#E9B936" stroke-width="9" stroke-linecap="round"/>
+      <path d="M67 155 L63 169 M111 155 L115 169" stroke="#DDAF2D" stroke-width="8" stroke-linecap="round"/>
+      <path d="M141 35 L146 20 L151 35 L165 40 L151 45 L146 59 L141 45 L128 40Z" fill="white"/>
+    </svg>
+  </div>
+
+  <div class="section-header">
+    <h3>学習コース</h3>
+    <span>YOUR LEARNING PATH</span>
+  </div>
+
+  <div class="course-grid">
+
+    <div class="course">
+      <div class="course-symbol" style="background:#E6F8ED">💬</div>
+      <div style="flex:1">
+        <h4>WORD / 言葉を学ぶ</h4>
+        <p>言葉・語彙・伝え方を学習</p>
+        <div class="progress-track"><div class="progress-fill" style="width:35%"></div></div>
+        <button onclick="startLesson('WORD')">レッスンを始める →</button>
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-symbol" style="background:#EAF0FF">🧠</div>
+      <div style="flex:1">
+        <h4>MIND / 思考を学ぶ</h4>
+        <p>物事の捉え方・感情の理解</p>
+        <div class="progress-track"><div class="progress-fill" style="width:20%;background:var(--blue)"></div></div>
+        <button onclick="startLesson('MIND')">レッスンを始める →</button>
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-symbol" style="background:#FFF1E5">🌱</div>
+      <div style="flex:1">
+        <h4>ACTION / 行動する</h4>
+        <p>日常でポジティブを実践</p>
+        <div class="progress-track"><div class="progress-fill" style="width:10%;background:#F2A66A"></div></div>
+        <button onclick="startLesson('ACTION')">レッスンを始める →</button>
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-symbol" style="background:#F1EAFE">🔄</div>
+      <div style="flex:1">
+        <h4>REVIEW / 復習する</h4>
+        <p>これまでの学習を振り返る</p>
+        <div class="progress-track"><div class="progress-fill" style="width:0%;background:var(--purple)"></div></div>
+        <button onclick="startLesson('REVIEW')">レッスンを始める →</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="lower-grid">
+    <div class="panel">
+      <h3>🎯 デイリーミッション</h3>
+
+      <div class="mission">
+        <div class="mission-icon">📖</div>
+        <div class="mission-info">
+          <strong>レッスンを1回クリア</strong>
+          <p>学習を継続しよう</p>
+        </div>
+        <span class="mission-status" id="missionLesson">0/1</span>
+      </div>
+
+      <div class="mission">
+        <div class="mission-icon">⭐</div>
+        <div class="mission-info">
+          <strong>50 XPを獲得</strong>
+          <p>今日の目標を達成しよう</p>
+        </div>
+        <span class="mission-status" id="missionXP">0/50</span>
+      </div>
+
+      <div class="mission">
+        <div class="mission-icon">💬</div>
+        <div class="mission-info">
+          <strong>ポジティブな言葉を学ぶ</strong>
+          <p>新しい表現を覚えよう</p>
+        </div>
+        <span class="mission-status">0/1</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>♧ GUILD QUEST</h3>
+      <div class="guild">
+        <h4>ポジティブ探検隊</h4>
+        <p>みんなで協力して目標を達成しよう！</p>
+        <div class="guild-members">
+          <div class="member">😊</div>
+          <div class="member">🐱</div>
+          <div class="member">🐸</div>
+          <div class="member">⭐</div>
+        </div>
+        <div class="guild-progress"><div></div></div>
+        <p>チーム達成度 65%</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- LESSON -->
+
+<section class="lesson-screen" id="lesson">
+
+  <div class="lesson-top">
+    <button class="close-btn" onclick="showHome()">×</button>
+    <div class="lesson-bar"><div id="lessonProgress"></div></div>
+    <div class="lesson-xp">⭐ <span id="lessonScore">0</span></div>
+  </div>
+
+  <div id="questionArea" class="question-card">
+    <div class="question-label" id="questionCategory">WORD / LESSON 01</div>
+    <h2 id="questionText">問題が表示されます</h2>
+    <p class="question-desc" id="questionDesc">最も適切な回答を選んでください。</p>
+    <div class="answers" id="answers"></div>
+    <div class="lesson-footer">
+      <div class="feedback" id="feedback"></div>
+      <button class="primary-btn" id="checkButton" onclick="checkAnswer()" disabled>回答する</button>
+    </div>
+  </div>
+
+  <div class="complete" id="complete">
+    <div class="big-star">🎉</div>
+    <h2>LESSON COMPLETE!</h2>
+    <p>今日も新しいことを学べたね！</p>
+    <div class="reward">⭐ +<span id="earnedXP">0</span> XP</div>
+    <p id="resultText"></p>
+    <button class="primary-btn" onclick="showHome()">ホームに戻る →</button>
+  </div>
+
+</section>
+
+</main>
+</div>
+
+<script>
+
+// ===== DATA =====
+
+const questions = {
+
+WORD: [
+{
+q:"「今日は失敗してしまった」を前向きに捉えると？",
+desc:"同じ出来事でも、表現を変えることができます。",
+a:["もう何をしても無駄だ","次に活かせる経験ができた","自分には才能がない","今日は最悪な一日だ"],
+correct:1,
+explain:"失敗を次に活かせる経験として捉える表現です。"
+},
+{
+q:"相手を自然に褒める言葉はどれ？",
+desc:"相手の努力や行動に注目してみよう。",
+a:["普通だね","別にすごくない","そこまでじゃない","その工夫、すごくいいね！"],
+correct:3,
+explain:"具体的な行動や工夫を褒めると、気持ちが伝わりやすくなります。"
+}
+],
+
+MIND: [
+{
+q:"思い通りにいかなかったとき、どんな考え方が役立つ？",
+desc:"自分を責めるだけではなく、次の一歩を考えてみよう。",
+a:["もう挑戦しない","自分には無理だ","何を改善できるか考えてみよう","全部他人のせいだ"],
+correct:2,
+explain:"改善できる部分を考えることで、次の行動につなげられます。"
+},
+{
+q:"友達が成功したとき、どんな気持ちを伝える？",
+desc:"相手の喜びを大切にしてみよう。",
+a:["よかったね！おめでとう！","どうせ運がよかっただけ","自分の方がすごい","別に興味ない"],
+correct:0,
+explain:"相手の成功を素直に喜ぶことも大切なコミュニケーションです。"
+}
+],
+
+ACTION: [
+{
+q:"友達が困っているとき、最初にできることは？",
+desc:"小さな行動から始めてみよう。",
+a:["無視する","勝手に決めつける","何があったの？と話を聞く","すぐに批判する"],
+correct:2,
+explain:"まず相手の話を聞くことで、必要なサポートが見えてきます。"
+},
+{
+q:"感謝を伝えるとき、最も自然な表現は？",
+desc:"日常の小さな感謝を言葉にしてみよう。",
+a:["当然でしょ","ありがとう、助かったよ！","別にいいけど","気にしてない"],
+correct:1,
+explain:"感謝と、何が助かったのかを伝えると気持ちが届きやすくなります。"
+}
+],
+
+REVIEW: [
+{
+q:"相手の努力を認める言葉として適切なのは？",
+desc:"これまでの学習を振り返ろう。",
+a:["たまたまでしょ","そんなの簡単だよ","努力したんだね、すごい！","もっと頑張れば？"],
+correct:2,
+explain:"相手の努力を具体的に認める表現です。"
+},
+{
+q:"失敗したときに役立つ考え方は？",
+desc:"学んだことを思い出そう。",
+a:["経験を次に活かそう","もう何もしない","全部諦めよう","自分を責め続けよう"],
+correct:0,
+explain:"経験から学び、次の行動につなげることが大切です。"
+}
+]
+
+};
+
+// ===== STATE =====
+
+let xp = 120;
+let level = 2;
+let streak = 3;
+let currentCourse = "WORD";
+let currentQuestion = 0;
+let selected = null;
+let correctCount = 0;
+let lessonXP = 0;
+let completed = 0;
+
+// ===== NAVIGATION =====
+
+function showHome() {
+ document.getElementById("home").style.display="block";
+ document.getElementById("lesson").style.display="none";
+}
+
+function showCourses() {
+ showHome();
+ document.querySelector(".page-title").textContent="学習コース";
+ document.querySelector(".page-subtitle").textContent="自分のペースで学んでいこう。";
+ document.querySelector(".course-grid").scrollIntoView({behavior:"smooth"});
+}
+
+function showMissions() {
+ showHome();
+ document.querySelector(".page-title").textContent="デイリーミッション";
+ document.querySelector(".lower-grid").scrollIntoView({behavior:"smooth"});
+}
+
+function showGuild() {
+ showHome();
+ document.querySelector(".page-title").textContent="GUILD QUEST";
+ document.querySelector(".guild").scrollIntoView({behavior:"smooth"});
+}
+
+// ===== LESSON =====
+
+function startLesson(course) {
+
+ currentCourse=course;
+ currentQuestion=0;
+ correctCount=0;
+ lessonXP=0;
+ selected=null;
+
+ document.getElementById("home").style.display="none";
+ document.getElementById("lesson").style.display="block";
+ document.getElementById("questionArea").style.display="block";
+ document.getElementById("complete").style.display="none";
+
+ renderQuestion();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function renderQuestion() {
+
+ const q=questions[currentCourse][currentQuestion];
+
+ selected=null;
+
+ document.getElementById("questionCategory").textContent=
+ currentCourse+" / LESSON "+String(currentQuestion+1).padStart(2,"0");
+
+ document.getElementById("questionText").textContent=q.q;
+ document.getElementById("questionDesc").textContent=q.desc;
+
+ document.getElementById("feedback").textContent="";
+ document.getElementById("checkButton").textContent="回答する";
+ document.getElementById("checkButton").disabled=true;
+
+ document.getElementById("lessonScore").textContent=lessonXP;
+
+ document.getElementById("lessonProgress").style.width=
+ (currentQuestion/questions[currentCourse].length*100)+"%";
+
+ const area=document.getElementById("answers");
+ area.innerHTML="";
+
+ q.a.forEach((answer,index)=>{
+
+   const button=document.createElement("button");
+   button.className="answer";
+   button.textContent=answer;
+
+   button.onclick=()=>{
+
+     if(selected!==null)return;
+
+     selected=index;
+
+     document.querySelectorAll(".answer").forEach(b=>{
+       b.classList.remove("selected");
+     });
+
+     button.classList.add("selected");
+
+     document.getElementById("checkButton").disabled=false;
+   };
+
+   area.appendChild(button);
+ });
+}
+
+function checkAnswer() {
+
+ const q=questions[currentCourse][currentQuestion];
+ const buttons=document.querySelectorAll(".answer");
+ const feedback=document.getElementById("feedback");
+ const checkButton=document.getElementById("checkButton");
+
+ if(selected===null)return;
+
+ if(checkButton.textContent==="次へ進む") {
+
+   currentQuestion++;
+
+   if(currentQuestion>=questions[currentCourse].length){
+     finishLesson();
+   }else{
+     renderQuestion();
+   }
+
+   return;
+ }
+
+ buttons.forEach((button,index)=>{
+   if(index===q.correct)button.classList.add("correct");
+   if(index===selected && selected!==q.correct)button.classList.add("wrong");
+ });
+
+ if(selected===q.correct) {
+   correctCount++;
+   lessonXP+=10;
+   feedback.textContent="正解！ "+q.explain;
+ } else {
+   feedback.textContent="もう一度考えてみよう。 "+q.explain;
+ }
+
+ document.getElementById("lessonScore").textContent=lessonXP;
+
+ checkButton.textContent="次へ進む";
+}
+
+function finishLesson() {
+
+ document.getElementById("questionArea").style.display="none";
+ document.getElementById("complete").style.display="block";
+
+ xp+=lessonXP;
+ completed++;
+
+ level=Math.floor(xp/100)+1;
+
+ document.getElementById("xp").textContent=xp;
+ document.getElementById("level").textContent=level;
+ document.getElementById("earnedXP").textContent=lessonXP;
+
+ document.getElementById("resultText").textContent=
+ questions[currentCourse].length+"問中 "+correctCount+"問正解！";
+
+ document.getElementById("missionLesson").textContent="1/1";
+ document.getElementById("missionXP").textContent=Math.min(50,lessonXP)+"/50";
+}
+
+// INITIALIZE
+
+showHome();
+
+</script>
+</body>
+</html>
